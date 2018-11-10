@@ -4,4 +4,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def new
+    @user = User.new
+  end
+
+  def create
+    user = User.create(user_params)
+    redirect_to user
+  end
+
+  def user_params
+    params.require(:user).permit(:username, :email, comment_ids: [])
+  end
+
 end

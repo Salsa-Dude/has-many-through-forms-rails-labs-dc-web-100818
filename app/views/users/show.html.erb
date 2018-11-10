@@ -1,1 +1,18 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>User</title>
+</head>
+<body>
+  <h1>Welcome <%= @user.username %></h1>
+  <ul>
+    <% @user.posts.each do |post| %> 
+      <li>Post: <%= link_to post.title, post_path(post) %></li>
+    <% end %>
+  </ul>
+</body>
+</html>
